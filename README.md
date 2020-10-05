@@ -30,3 +30,7 @@ If something went wrong programm will write an error message.
 
 Если что-то пошло не так во время выполнения программы, она завершится с ошибкой
 И напишет соответствующее сообщение
+
+`some kawai in the end`
+
+![](./kotopyos.jpeg)
