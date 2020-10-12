@@ -6,6 +6,8 @@
 
 #define epsilon 1e-10
 #define SIZE_OF_LINE 200
+#define NO_SOLUTIONS -1
+#define INFINITE_NUMBER_OF_SOLUTIONS -1
 
 //--------------------------------------------------------------//
 //!        Prints some information and instructions
@@ -267,7 +269,7 @@ int get_equation_result(double a, double b, double c, double* x1, double* x2)
     calculate_linear_equation(2 * a, b, x1);
     return 1;
   }
-  else if (!cmp(D, -1.0))                             /* D < 0 */
+  else if (!cmp(D, NO_SOLUTIONS))                     /* there are no solutions with D < 0 */
   {
     return 0;
   }
@@ -294,7 +296,7 @@ double calculate_the_discrimimant(double a, double b, double c)
   }
   else
   {
-    return -1;
+    return NO_SOLUTIONS;
   }
 }
 
@@ -302,7 +304,7 @@ int calculate_linear_equation(double b, double c, double* x1)
 {
   if (!cmp(b, 0.0) && !cmp(c, 0.0))
   {
-    return -1;
+    return INFINITE_NUMBER_OF_SOLUTIONS;
   }
   else if (!cmp(b, 0.0))
   {
@@ -338,7 +340,7 @@ void print_result(double x1, double x2, int number_of_roots)
       printf("There is no solution of your equation.\n");
     break;
 
-    case -1:
+    case INFINITE_NUMBER_OF_SOLUTIONS:
       printf("This equation has an infinit count of solutions\n");
     break;
 
