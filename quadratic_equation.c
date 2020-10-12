@@ -260,25 +260,27 @@ int get_equation_result(double a, double b, double c, double* x1, double* x2)
 
   D = calculate_the_discrimimant(a, b, c);
 
-  if (!cmp(a, 0.0))                                   /* linear */
+  if (!cmp(a, 0.0))                                       /* linear */
   {
     return calculate_linear_equation(b, c, x1);
   }
-  else if (!cmp(D, 0.0))                              /* D = 0 */
+  
+  if (!cmp(D, 0.0))                                       /* D = 0 */
   {
     calculate_linear_equation(2 * a, b, x1);
     return 1;
   }
-  else if (!cmp(D, NO_SOLUTIONS))                     /* there are no solutions with D < 0 */
+  
+  if (!cmp(D, NO_SOLUTIONS))                              /* there are no solutions with D < 0 */
   {
     return 0;
   }
-  else if (cmp(D, 0.0) == 1)                          /* D > 0 */
+  
+  if (cmp(D, 0.0) == 1)                                   /* D > 0 */
   {
     calculate_linear_equation(2 * a, (b + D), x1);
 
     calculate_linear_equation(2 * a, (b - D), x2);
-
     return 2;
   } 
 }
